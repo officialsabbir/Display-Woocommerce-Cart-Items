@@ -1,0 +1,15 @@
+	      <?php
+        
+          echo '<select name="' . $field['key'] . '">';
+
+                    $items =WC()->cart->get_cart();
+
+                     foreach($items as $item => $values) {
+                         $_product = $values['data']->post;
+                         $price = get_post_meta($values['product_id'] , '_price', true);
+                         echo "<option value=".$values['product_id'].">".$_product->post_title."-".$price."</option>";
+                      }
+
+             echo '</select>';
+           
+         ?>
